@@ -9,6 +9,7 @@ $Global:ApiRootRoute = 'https://qualysapi.qualys.com/api/2.0/fo'
  .Description
   Provide an X-Requested-With header with a call to this function, and also every subsequent function call within this module.
   The session variable returned from a successful authentication will be stored for later use in subsequent function calls.
+  Authored by Vasken Houdoverdov
 
  .Example
   Login-Qualys
