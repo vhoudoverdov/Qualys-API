@@ -29,6 +29,7 @@ function Login-Qualys
  .Description
   This function should be the last function called in any sequence of function calls from this module.  
   This prevents the user account configured for Qualys API access from being locked out.
+  Authored by Vasken Houdoverdov
 
  .Example
   Logout-Qualys
@@ -45,6 +46,7 @@ function Logout-Qualys
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of IP addresses which Qualys is allowed to scan.
+  Authored by Vasken Houdoverdov
 
  .Example
   Extract-AccountIPAddresses
@@ -63,6 +65,7 @@ function Extract-AccountIPAddresses
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of host assets defined.
+  Authored by Vasken Houdoverdov
 
  .Example
   Extract-HostAssets
@@ -81,6 +84,7 @@ function Extract-HostAssets
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of historical vulnerability scans which have taken place.
+  Authored by Vasken Houdoverdov
 
  .Example
   Extract-Scans
@@ -99,6 +103,7 @@ function Extract-Scans
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of scheduled vulnerability scans.
+  Authored by Vasken Houdoverdov
 
  .Example
   Extract-ScheduledScans
@@ -116,6 +121,7 @@ function Extract-ScheduledScans
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of configured Unix authentication records.
+  Authored by Vasken Houdoverdov
 
  .Example
   Extract-UnixAuthRecords
@@ -134,6 +140,7 @@ function Extract-UnixAuthRecords
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of configured Windows authentication records.
+  Authored by Vasken Houdoverdov
 
  .Example
   Extract-WindowsAuthRecords
@@ -152,6 +159,7 @@ function Extract-WindowsAuthRecords
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of configured asset groups.
+  Authored by Vasken Houdoverdov
 
  .Example
   Extract-AssetGroups
@@ -170,6 +178,7 @@ function Extract-AssetGroups
 
  .Description
   Within a given Qualys account, launch a vulnerability scan.
+  Authored by Vasken Houdoverdov
 
  .Example
   Launch-VulnerabilityScan
@@ -188,6 +197,7 @@ function Launch-VulnerabilityScan
 
  .Description
   For a given Qualys vulnerability scan, cancel the scan.
+  Authored by Vasken Houdoverdov
 
  .Example
   Cancel-VulnerabilityScan
@@ -206,6 +216,7 @@ function Cancel-VulnerabilityScan
 
  .Description
   For a given Qualys vulnerability scan, pause the scan.
+  Authored by Vasken Houdoverdov
 
  .Example
   Pause-VulnerabilityScan
@@ -224,6 +235,7 @@ function Pause-VulnerabilityScan
 
  .Description
   For a given Qualys vulnerability scan, resume the scan.
+  Authored by Vasken Houdoverdov
 
  .Example
   Resume-VulnerabilityScan
