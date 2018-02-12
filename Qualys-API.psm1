@@ -10,7 +10,6 @@ $Global:ApiRootRoute = 'https://qualysapi.qualys.com/api/2.0/fo'
  .Description
   Provide an X-Requested-With header with a call to this function, and also every subsequent function call within this module.
   The session variable returned from a successful authentication will be stored for later use in subsequent function calls.
-  Authored by Vasken Houdoverdov
 
  .Example
   Login-Qualys
@@ -30,7 +29,6 @@ function Login-Qualys
  .Description
   This function should be the last function called in any sequence of function calls from this module.  
   This prevents the user account configured for Qualys API access from being locked out.
-  Authored by Vasken Houdoverdov
 
  .Example
   Logout-Qualys
@@ -48,7 +46,6 @@ function Logout-Qualys
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of IP addresses which Qualys is allowed to scan.
-  Authored by Vasken Houdoverdov
 
  .Example
   Extract-AccountIPAddresses
@@ -67,7 +64,6 @@ function Extract-AccountIPAddresses
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of host assets defined.
-  Authored by Vasken Houdoverdov
 
  .Example
   Extract-HostAssets
@@ -86,7 +82,6 @@ function Extract-HostAssets
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of historical vulnerability scans which have taken place.
-  Authored by Vasken Houdoverdov
 
  .Example
   Extract-Scans
@@ -104,8 +99,7 @@ function Extract-Scans
   Vasken Houdoverdov
 
  .Description
-  ETL function for use with the Qualys API.  For the given Qualys account, pull a list of scheduled vulnerability scans.
-  Authored by Vasken Houdoverdov
+  ETL function for use with the Qualys API.  For the given Qualys account, pull a list of scheduled vulnerability scans.  
 
  .Example
   Extract-ScheduledScans
@@ -122,8 +116,7 @@ function Extract-ScheduledScans
   Vasken Houdoverdov
 
  .Description
-  ETL function for use with the Qualys API.  For the given Qualys account, pull a list of configured Unix authentication records.
-  Authored by Vasken Houdoverdov
+  ETL function for use with the Qualys API.  For the given Qualys account, pull a list of configured Unix authentication records.  
 
  .Example
   Extract-UnixAuthRecords
@@ -141,8 +134,7 @@ function Extract-UnixAuthRecords
   Vasken Houdoverdov
 
  .Description
-  ETL function for use with the Qualys API.  For the given Qualys account, pull a list of configured Windows authentication records.
-  Authored by Vasken Houdoverdov
+  ETL function for use with the Qualys API.  For the given Qualys account, pull a list of configured Windows authentication records. 
 
  .Example
   Extract-WindowsAuthRecords
@@ -161,7 +153,6 @@ function Extract-WindowsAuthRecords
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of configured asset groups.
-  Authored by Vasken Houdoverdov
 
  .Example
   Extract-AssetGroups
@@ -179,8 +170,7 @@ function Extract-AssetGroups
   Vasken Houdoverdov
 
  .Description
-  Within a given Qualys account, launch a vulnerability scan.
-  Authored by Vasken Houdoverdov
+  Within a given Qualys account, launch a vulnerability scan. 
 
  .Example
   Launch-VulnerabilityScan
@@ -199,7 +189,6 @@ function Launch-VulnerabilityScan
 
  .Description
   For a given Qualys vulnerability scan, cancel the scan.
-  Authored by Vasken Houdoverdov
 
  .Example
   Cancel-VulnerabilityScan
@@ -218,7 +207,6 @@ function Cancel-VulnerabilityScan
 
  .Description
   For a given Qualys vulnerability scan, pause the scan.
-  Authored by Vasken Houdoverdov
 
  .Example
   Pause-VulnerabilityScan
@@ -237,7 +225,6 @@ function Pause-VulnerabilityScan
 
  .Description
   For a given Qualys vulnerability scan, resume the scan.
-  Authored by Vasken Houdoverdov
 
  .Example
   Resume-VulnerabilityScan
