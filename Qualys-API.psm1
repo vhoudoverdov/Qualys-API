@@ -5,6 +5,7 @@ $Global:ApiRootRoute = 'https://qualysapi.qualys.com/api/2.0/fo'
 <# 
  .Synopsis
   Authenticate to the Qualys API and store the resulting session variable for later use.
+  Vasken Houdoverdov
 
  .Description
   Provide an X-Requested-With header with a call to this function, and also every subsequent function call within this module.
@@ -16,8 +17,7 @@ $Global:ApiRootRoute = 'https://qualysapi.qualys.com/api/2.0/fo'
 #>
 function Login-Qualys 
 {
-    $Headers = @{}
-    $Headers.Add("X-Requested-With",$X_Requested_With)
+    $Headers = @{"X-Requested-With"=$X_Requested_With}
     $PostParameters = @{action='login';username='vh';password='password'}
     Invoke-WebRequest -Method POST -Body $PostParameters -SessionVariable $Session -Uri "$ApiRootRoute/session/"
 }
@@ -25,6 +25,7 @@ function Login-Qualys
 <# 
  .Synopsis
   End an existing Qualys API session.
+  Vasken Houdoverdov
 
  .Description
   This function should be the last function called in any sequence of function calls from this module.  
@@ -43,6 +44,7 @@ function Logout-Qualys
 <# 
  .Synopsis
   Extract the set of IP addresses configured under a given Qualys account for ETL purposes.
+  Vasken Houdoverdov
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of IP addresses which Qualys is allowed to scan.
@@ -53,8 +55,7 @@ function Logout-Qualys
 #>
 function Extract-AccountIPAddresses
 {
-    $Headers = @{}
-    $Headers.Add("X-Requested-With",$X_Requested_With)
+    $Headers = @{"X-Requested-With"=$X_Requested_With}
     $PostParameters = @{action='list'}
     Invoke-WebRequest -Method POST -Body $PostParameters -SessionVariable $Session -Uri "$ApiRootRoute/asset/ip/"
 }
@@ -62,6 +63,7 @@ function Extract-AccountIPAddresses
 <# 
  .Synopsis
   Extract the set of host assets configured within the given Qualys accounts.
+  Vasken Houdoverdov
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of host assets defined.
@@ -72,8 +74,7 @@ function Extract-AccountIPAddresses
 #>
 function Extract-HostAssets
 {
-    $Headers = @{}
-    $Headers.Add("X-Requested-With",$X_Requested_With)
+    $Headers = @{"X-Requested-With"=$X_Requested_With}
     $PostParameters = @{action='list';echo_request=1;show_args=1;show_op=1}
     Invoke-WebRequest -Method POST -Body $PostParameters -SessionVariable $Session -Uri "$ApiRootRoute/scan/"
 }
@@ -81,6 +82,7 @@ function Extract-HostAssets
 <# 
  .Synopsis
   Extract the set of historical vulnerability scans performed for a given Qualys account.
+  Vasken Houdoverdov
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of historical vulnerability scans which have taken place.
@@ -91,8 +93,7 @@ function Extract-HostAssets
 #>
 function Extract-Scans
 {
-    $Headers = @{}
-    $Headers.Add("X-Requested-With",$X_Requested_With)
+    $Headers = @{"X-Requested-With"=$X_Requested_With}
     $PostParameters = @{action='list'}
     Invoke-WebRequest -Method POST -Body $PostParameters -SessionVariable $Session -Uri "$ApiRootRoute/asset/host/"
 }
@@ -100,6 +101,7 @@ function Extract-Scans
 <# 
  .Synopsis
   Extract the set of scheduled vulnerability scans configured for a given Qualys account.
+  Vasken Houdoverdov
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of scheduled vulnerability scans.
@@ -110,14 +112,14 @@ function Extract-Scans
 #>
 function Extract-ScheduledScans
 {
-    $Headers = @{}
-    $Headers.Add("X-Requested-With",$X_Requested_With)
+    $Headers = @{"X-Requested-With"=$X_Requested_With}
     Invoke-WebRequest -Method GET -SessionVariable $Session -Uri "$ApiRootRoute/schedule/scan/?action=list"
 }
 
 <# 
  .Synopsis
   Extract the set of Unix authentnication records for a given Qualys account.
+  Vasken Houdoverdov
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of configured Unix authentication records.
@@ -128,8 +130,7 @@ function Extract-ScheduledScans
 #>
 function Extract-UnixAuthRecords
 {
-    $Headers = @{}
-    $Headers.Add("X-Requested-With",$X_Requested_With)
+    $Headers = @{"X-Requested-With"=$X_Requested_With}
     $PostParameters = @{action='list'}
     Invoke-WebRequest -Method POST -Body $PostParameters -SessionVariable $Session -Uri "$ApiRootRoute/auth/unix/"
 }
@@ -137,6 +138,7 @@ function Extract-UnixAuthRecords
 <# 
  .Synopsis
   Extract the set of Windows authentnication records for a given Qualys account.
+  Vasken Houdoverdov
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of configured Windows authentication records.
@@ -147,8 +149,7 @@ function Extract-UnixAuthRecords
 #>
 function Extract-WindowsAuthRecords
 {
-    $Headers = @{}
-    $Headers.Add("X-Requested-With",$X_Requested_With)
+    $Headers = @{"X-Requested-With"=$X_Requested_With}
     $PostParameters = @{action='list'}
     Invoke-WebRequest -Method POST -Body $PostParameters -SessionVariable $Session -Uri "$ApiRootRoute/auth/windows/"
 }
@@ -156,6 +157,7 @@ function Extract-WindowsAuthRecords
 <# 
  .Synopsis
   Extract the set of asset groups for a given Qualys account.
+  Vasken Houdoverdov
 
  .Description
   ETL function for use with the Qualys API.  For the given Qualys account, pull a list of configured asset groups.
@@ -166,8 +168,7 @@ function Extract-WindowsAuthRecords
 #>
 function Extract-AssetGroups
 {
-    $Headers = @{}
-    $Headers.Add("X-Requested-With",$X_Requested_With)
+    $Headers = @{"X-Requested-With"=$X_Requested_With}
     $PostParameters = @{action='list'}
     Invoke-WebRequest -Method POST -Body $PostParameters -SessionVariable $Session -Uri "$ApiRootRoute/asset/group/"
 }
@@ -175,6 +176,7 @@ function Extract-AssetGroups
 <# 
  .Synopsis
   Launch a vulnerability scan.
+  Vasken Houdoverdov
 
  .Description
   Within a given Qualys account, launch a vulnerability scan.
@@ -185,8 +187,7 @@ function Extract-AssetGroups
 #>
 function Launch-VulnerabilityScan
 {
-    $Headers = @{}
-    $Headers.Add("X-Requested-With",$X_Requested_With)
+    $Headers = @{"X-Requested-With"=$X_Requested_With}
     $PostParameters = @{action='launch';scan_title=$ScanTitle;ip=$TargetIP;option_title=$OptionTitle;iscanner_name=$ScannerName}
     Invoke-WebRequest -Method POST -Body $PostParameters -SessionVariable $Session -Uri "$ApiRootRoute/scan/"
 }
@@ -194,6 +195,7 @@ function Launch-VulnerabilityScan
 <# 
  .Synopsis
   Cancel a vulnerability scan.
+  Vasken Houdoverdov
 
  .Description
   For a given Qualys vulnerability scan, cancel the scan.
@@ -204,8 +206,7 @@ function Launch-VulnerabilityScan
 #>
 function Cancel-VulnerabilityScan
 {
-    $Headers = @{}
-    $Headers.Add("X-Requested-With",$X_Requested_With)
+    $Headers = @{"X-Requested-With"=$X_Requested_With}
     $PostParameters = @{action='cancel';scan_ref=$ScanReference}
     Invoke-WebRequest -Method POST -Body $PostParameters -SessionVariable $Session -Uri "$ApiRootRoute/scan/"
 }
@@ -213,6 +214,7 @@ function Cancel-VulnerabilityScan
 <# 
  .Synopsis
   Pause a vulnerability scan.
+  Vasken Houdoverdov
 
  .Description
   For a given Qualys vulnerability scan, pause the scan.
@@ -223,8 +225,7 @@ function Cancel-VulnerabilityScan
 #>
 function Pause-VulnerabilityScan
 {
-    $Headers = @{}
-    $Headers.Add("X-Requested-With",$X_Requested_With)
+    $Headers = @{"X-Requested-With"=$X_Requested_With}
     $PostParameters = @{action='pause';scan_ref=$ScanReference}
     Invoke-WebRequest -Method POST -Body $PostParameters -SessionVariable $Session -Uri "$ApiRootRoute/scan/"
 }
@@ -232,6 +233,7 @@ function Pause-VulnerabilityScan
 <# 
  .Synopsis
   Resume a vulnerability scan.
+  Vasken Houdoverdov
 
  .Description
   For a given Qualys vulnerability scan, resume the scan.
@@ -242,8 +244,7 @@ function Pause-VulnerabilityScan
 #>
 function Resume-VulnerabilityScan
 {
-    $Headers = @{}
-    $Headers.Add("X-Requested-With",$X_Requested_With)
+    $Headers = @{"X-Requested-With"=$X_Requested_With}
     $PostParameters = @{action='resume';scan_ref=$ScanReference}
     Invoke-WebRequest -Method POST -Body $PostParameters -SessionVariable $Session -Uri "$ApiRootRoute/scan/"
 }
